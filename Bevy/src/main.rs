@@ -44,20 +44,6 @@ fn setup(mut commands: Commands, asset_server: Res<AssetServer>) {
     // Props n Stuff
     commands.spawn((
         SceneRoot(asset_server.load(
-                GltfAssetLabel::Scene(0).from_asset("models/room/room.glb"),
-            )),
-        Transform::from_xyz(0.0, 0.0, 1.0),
-        )).observe(|mut trigger: Trigger<Pointer<Click>>| {
-            println!("I was just clicked!");
-            // Get the underlying pointer event data
-            let _click_event: &Pointer<Click> = trigger.event();
-            // Stop the event from bubbling up the entity hierarchy
-            trigger.propagate(false);
-        }
-    );
-
-    commands.spawn((
-        SceneRoot(asset_server.load(
                 GltfAssetLabel::Scene(0).from_asset("models/rock_baked/rock_baked.glb"),
             )),
         Transform::from_xyz(0.0, 0.0, 1.0),
